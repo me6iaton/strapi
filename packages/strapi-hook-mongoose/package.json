@@ -1,6 +1,6 @@
 {
   "name": "strapi-hook-mongoose",
-  "version": "3.0.0-alpha.14.4.0",
+  "version": "3.0.0-alpha.14.5.0",
   "description": "Mongoose hook for the Strapi framework",
   "homepage": "http://strapi.io",
   "keywords": [
@@ -10,6 +10,9 @@
     "nosql",
     "strapi"
   ],
+  "bin": {
+    "print-mongoose-schema": "./bin/print-schema.js"
+  },
   "directories": {
     "lib": "./lib"
   },

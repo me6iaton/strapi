@@ -10,6 +10,9 @@
     "nosql",
     "strapi"
   ],
+  "bin": {
+    "print-mongoose-schema": "./bin/print-schema.js"
+  },
   "directories": {
     "lib": "./lib"
   },

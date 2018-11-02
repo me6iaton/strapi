@@ -337,6 +337,11 @@ module.exports = function (strapi) {
             // Call this callback function after we are done parsing
             // all attributes for relationships-- see below.
             const done = _.after(_.size(definition.attributes), () => {
+
+              // extend mongoose schema if models/*.override.js exist
+              if (definition.override) {
+                definition.loadedModel = Object.assign({}, definition.loadedModel, definition.override);
+              }
               // Generate schema without virtual populate
               const schema = new instance.Schema(_.omitBy(definition.loadedModel, model => {
                 return model.type === 'virtual';

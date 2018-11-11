@@ -38,12 +38,13 @@ function inlineType(mongooseType) {
     case 'decimal':
       return markQuotesToDrop(`require('mongoose-float').loadType(require('mongoose'), 2)`);
     case 'float':
-      return markQuotesToDrop(`require('mongoose-float').loadType(require('mongoose'), 10)`);
+      return markQuotesToDrop('Number');
     case 'json':
       return 'Mixed';
     case 'biginteger':
+      return markQuotesToDrop('Number');
     case 'integer':
-      return 'Number';
+      return markQuotesToDrop(`require('mongoose-int32')`);
     case 'uuid':
       return markQuotesToDrop(`require('mongoose').Schema.Types.ObjectId`);
     case 'email':

@@ -42,8 +42,9 @@ function inlineType(mongooseType) {
     case 'json':
       return 'Mixed';
     case 'biginteger':
-    case 'integer':
       return 'Number';
+    case 'integer':
+      return 'Int32';
     case 'uuid':
       return 'ObjectId';
     case 'email':

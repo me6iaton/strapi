@@ -7,6 +7,7 @@
 module.exports = (mongoose = new Mongoose()) => {
   mongoose.Schema.Types.Decimal = require('mongoose-float').loadType(mongoose, 2);
   mongoose.Schema.Types.Float = require('mongoose-float').loadType(mongoose, 20);
+  mongoose.Schema.Types.Int32 = require('mongoose-int32');
 
   /**
    * Convert MongoDB ID to the stringify version as GraphQL throws an error if not.
@@ -38,8 +39,9 @@ module.exports = (mongoose = new Mongoose()) => {
         case 'json':
           return 'Mixed';
         case 'biginteger':
-        case 'integer':
           return 'Number';
+        case 'integer':
+          return 'Int32';
         case 'uuid':
           return 'ObjectId';
         case 'email':
